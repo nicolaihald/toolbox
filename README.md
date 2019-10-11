@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/nicolaihald/toolbox.svg?branch=master)](https://travis-ci.org/nicolaihald/toolbox)
 # Toolbox 
 This docker image contains various utility tools like ab (apache bench), siege, curl, wget, ping, netcat, nslookup, host, perf, psql, mysql etc.. The image is typically used for running a "_one-off_" pod/container in kubernetes for debugging purposes.
 

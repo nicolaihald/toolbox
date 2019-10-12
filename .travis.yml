@@ -1,0 +1,19 @@
+language: generic
+sudo: required
+services:
+- docker
+env:
+  global:
+  - DOCKER_IMAGE_NAME=$DOCKER_USERNAME/toolbox
+  - COMMIT=${TRAVIS_COMMIT::8}
+install:
+- echo "install nothing!"
+script:
+- echo "no tests!"
+after_success:
+- docker --version
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker build -t $DOCKER_IMAGE_NAME .
+- docker tag $DOCKER_IMAGE_NAME DOCKER_IMAGE_NAME:$COMMIT
+- docker images
+- docker push $DOCKER_IMAGE_NAME
